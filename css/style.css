@@ -14,41 +14,47 @@ use the fonts in other ways in the font hierarchy etc. */
 
 /* change these */
 :root {
-  --bg-color: red;
-  --link-color: green;
-  --link-hover-color: blue;
-  --color-4: hotpink;
-  --color-5: rebeccapurple;
+  --bg-color: #feeec2;
+  --link-color: #00204f;
+  --link-hover-color: #c2daff;
+  --color-4: #ffaf0f;
+  --color-5: #f21905;
+  --color-6: #dbeaff;
 
-  --primary-font: "Open Sans", sans-serif;
-  --secondary-font: "Droid Serif", serif;
-  --main-text-color: #000;
+  --primary-font: "Times New Roman", Times, serif;
+  --secondary-font: Arial, Helvetica, sans-serif;
+  --main-text-color: #00204f;
 
   --white-space: 1rem;
 }
 
-button {
+/* button {
   transition: all 3s;
-}
+} */
 a {
-  transition: all 3s;
+  /* transition: all 6s; */
+
+  color: var(--link-color);
+  text-underline-offset: var(--offset, 0.2em);
+  text-decoration: underline 0.15em;
+  transition: --offset 600ms, text-decoration-color 600ms;
 }
-button:hover {
+/* button:hover {
   background-color: var(--link-hover-color);
   transform: scale(3) rotate(40deg);
 }
 
 button:active {
   background-color: var(--bg-color);
-}
+} */
 
 a:hover {
-  color: var(--link-hover-color);
-  font-size: 4rem;
+  --offset: 0.4em;
 }
 html {
   font-size: 100%;
-  font-family: var(--primary-font);
+  font-family: var(--secondary-font);
+  color: var(--link-color);
 }
 
 img {
@@ -66,33 +72,37 @@ footer {
 
 .full-width {
   background: var(--bg-color);
-  color: white;
+  color: var(--color-5);
   width: 100%;
 }
 
 .header-wrapper h1 {
   font-size: 3rem;
   text-transform: uppercase;
-  letter-spacing: -2px;
+  letter-spacing: 0.5rem;
   padding-right: 0.75em;
-  font-weight: bold;
-  color: white;
+  font-weight: bolder;
+  color: var(--color-5);
 }
 
 .header-wrapper h2 {
   font-size: 1.6em;
-  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
   font-weight: bold;
   margin: var(--white-space) 0;
+  font-family: var(--primary-font);
+  font-weight: lighter;
 }
 
 .header-wrapper h3 {
   font-size: 1.2rem;
-  font-style: italic;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .header-wrapper h4 {
   font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 main {
@@ -104,10 +114,10 @@ section {
 }
 
 .section-heading {
-  font-style: italic;
   font-size: 1.3rem;
-  color: #777;
+  color: var(--main-text-color);
   margin: 0.5rem 0;
+  text-transform: uppercase;
 }
 
 ul {
@@ -152,20 +162,17 @@ ul li:last-child {
 }
 
 .texture-swatch-1 {
-  background: url(../img/pw_maze_white.png) top left repeat;
+  background: url(../img/line.png) top right repeat;
 }
 
-.texture-swatch-2 {
-  background: url(../img/subtle_grunge.png) top left repeat;
+/* .texture-swatch-2 {
+  background: url(../img/differentLines.png) top left repeat;
 }
 
-.texture-swatch-1 {
-  background: url(../img/pw_maze_white.png) top left repeat;
-}
 
 .texture-swatch-3 {
   background: url(../img/white_paperboard.png) top left repeat;
-}
+} */
 
 .images ul {
   flex-direction: column;
@@ -179,23 +186,32 @@ ul li:last-child {
 }
 
 button {
-  padding: 1rem;
-  border-radius: 4px;
-  background: var(--link-color);
-  text-align: center;
-  text-decoration: none;
-  font: bold 1.25em/1 var(--primary-font);
-  letter-spacing: 1px;
-  color: white;
-  text-transform: uppercase;
-  text-shadow: 0px -1px 0px #0374a0;
-  transition: all 0.2s ease;
+  align-self: center;
+  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0 1rem;
+  color: #41403e;
+  font: bold 1.25em/1 var(--secondary-font);
+  outline: none;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
   cursor: pointer;
-  margin: 0 1rem 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.primary-button {
+  border: solid 2px #41403e;
 }
 
 .secondary-button {
-  background: var(--color-5);
+  border: dashed 2px #41403e;
+}
+
+button:hover {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
 }
 
 button:focus,
@@ -212,12 +228,16 @@ button:focus-within {
 .h1-sample {
   font-size: 2.4rem;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 .h2-sample {
-  font-family: var(--secondary-font);
-  font-style: italic;
   font-size: 1.25rem;
+  text-transform: uppercase;
+  margin: var(--white-space) 0;
+  font-family: var(--primary-font);
+  font-weight: lighter;
 }
 
 p.typography-sample {
@@ -234,14 +254,6 @@ em {
   font-style: italic;
 }
 
-a {
-  font-family: var(--primary-font);
-  color: var(--link-color);
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
 p[class*="font-details-"] {
   margin-top: 0.5rem;
   margin-bottom: calc(2 * var(--white-space));
@@ -251,16 +263,22 @@ p[class*="font-details-"] {
 }
 
 .adjectives ul {
-  font-size: 2rem;
-  opacity: 0.5;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
-.adjectives ul {
-  flex-direction: column;
+.adjectives li {
+  flex-direction: row;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.adjectives li::before {
+  content: "👉";
 }
 
 footer {
-  font-style: italic;
+  text-transform: uppercase;
 }
 
 @media (min-width: 800px) {
@@ -283,6 +301,6 @@ footer {
 
 @media (min-width: 900px) {
   .adjectives ul {
-    flex-direction: row;
+    flex-direction: column;
   }
 }
